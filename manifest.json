@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Jira Assignee Search",
+  "version": "1.0",
+  "description": "Adds search functionality to Jira assignee dropdowns for faster user selection",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.atlassian.net/*",
+    "*://*.atlassian.com/*",
+    "*://*/jira/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.atlassian.net/*",
+        "*://*.atlassian.com/*",
+        "*://*/jira/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+  "16": "icon16.png",
+  "48": "icon48.png",
+  "128": "icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+  }
+}
